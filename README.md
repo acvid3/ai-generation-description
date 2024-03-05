@@ -31,7 +31,7 @@ To run the project locally, the following steps must be taken:
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/acvid3/ai-generation-description.git
 ```
 ````
 
