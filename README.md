@@ -1,6 +1,6 @@
 Certainly! Below is the `README.md` content in English with your LinkedIn profile included in the contacts section:
 
-````markdown
+```markdown
 # OpenAI GPT-3 Express Server
 
 This project is a server application built using Express.js, which interfaces with OpenAI GPT-3 for generating text content.
@@ -27,13 +27,13 @@ A code example for interacting with OpenAI GPT-3 through Node.js was taken from 
 ## Installation
 
 To run the project locally, the following steps must be taken:
+```
 
 1. Clone the repository:
 
 ```bash
 git clone https://github.com/acvid3/ai-generation-description.git
 ```
-````
 
 2. Install dependencies:
 
