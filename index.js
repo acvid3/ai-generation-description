@@ -12,11 +12,9 @@ app.use(express.json());
 
 app.post("/generate-description", async (req, res) => {
     try {
-        const { first_currency, last_currency, city } = req.query;
+        const { prompt } = req.query;
 
-        console.log(
-            `Finding difficulty for ${first_currency}, ${last_currency} in ${city}`
-        );
+        console.log(`Finding difficulty for ${prompt}`);
 
         let response = "";
         const stream = await openai.chat.completions.create({
@@ -24,8 +22,7 @@ app.post("/generate-description", async (req, res) => {
             messages: [
                 {
                     role: "user",
-                    content: `Створи опис для поста сторінки не більше ніж на 200 слів з акцентом на безпеку та швидкість транзакцій. 
-                    ось з якої валюті треба створити обмін ( з ${first_currency} у ${last_currency}) в місті ${city}`,
+                    content: prompt,
                 },
             ],
             stream: true,
