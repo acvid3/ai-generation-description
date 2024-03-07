@@ -31,7 +31,7 @@ app.post("/generate-description", async (req, res) => {
         for await (const chunk of stream) {
             response += chunk.choices[0]?.delta?.content || "";
         }
-
+        console.log("GPT Response: ", response);
         return res.status(200).json({
             success: true,
             data: response,
