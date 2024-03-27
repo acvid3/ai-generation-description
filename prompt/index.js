@@ -18,11 +18,6 @@ const getPromptHowToCurrency = (currency) => `
 
     Несмотря на то, что цена биткоина может колебаться, его популярность и принятие продолжают расти, делая его важным игроком в мировой экономике и финансовых рынках.
 
-    График стоимости ${currency} 
-
-
-    Пример от сюда https://www.binance.com/ru-UA/price/bitcoin 
-
 `;
 
 const getPromptBasicCurrencyExchange = (currency) => `
@@ -118,6 +113,7 @@ const getPromptFAQ = (currency) => `
 
 module.exports = {
     getPromptRate,
+    getPromptHowToCurrency,
     getPromptBasicCurrencyExchange,
     getPromptHowToWorkingCurrency,
     getPromptWhereExchange,
