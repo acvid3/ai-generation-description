@@ -2,6 +2,7 @@ const getInstructionCryptoCurrency = (price, currency, structureJson) => {
     let descriptionInstruction = "";
     let priceInstruction = "";
     let answerInstruction = "";
+    let linkInstruction = "";
 
     if (JSON.stringify(structureJson).includes("description")) {
         descriptionInstruction = `
@@ -26,8 +27,13 @@ const getInstructionCryptoCurrency = (price, currency, structureJson) => {
     ${priceInstruction}
     ${descriptionInstruction}
     (title : static);
-    (If there is a link in the prompt, wrap it in a tag <a></a>);
+    
     ([UA, US, RU] mandatory for lenguages version);
+
+    Whenever a text contains an 'http' or 'https' URL, encapsulate the URL within an anchor tag (<a></a>). 
+    Ensure that each link is correctly formatted as an HTML hyperlink, making the URLs clickable and accessible in the generated output. 
+    This should be applied consistently throughout the text to enhance usability and navigation."
+
 
     The response should be in JSON format, filling in each key of the following structure: ${structureJson}
 `;
