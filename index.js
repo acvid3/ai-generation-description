@@ -1,5 +1,5 @@
 const fs = require("fs").promises;
-const { structureMap } = require("./format-response/cryptocurrency");
+const { structureMap } = require("./format-response/geo");
 const {
     getMessage,
     waitForResponseMessage,
@@ -7,7 +7,7 @@ const {
 const { getMapPrompts } = require("./includes/map_prompts");
 const prompts = require("./prompt");
 
-const currencies = ["BTC", "ETH", "XRP", "BNB", "DOGE"];
+const currencies = ["Lviv", "Vinnitsa", "Kyiv", "Odessa", "Dnept"];
 
 const callbackPrompts = getMapPrompts(structureMap, prompts);
 
@@ -50,7 +50,7 @@ async function generateDescriptions() {
 }
 
 generateDescriptions().then((allPosts) => {
-    const postsFilePath = "posts-currency.json";
+    const postsFilePath = "geo.json";
     fs.writeFile(postsFilePath, JSON.stringify({ allPosts }, null, 2), "utf8");
     console.log("All posts: ", JSON.stringify(allPosts, null, 2));
 });
