@@ -6,10 +6,10 @@ const getInstructionCryptoCurrency = (price, currency, structureJson) => {
 
     if (JSON.stringify(structureJson).includes("description")) {
         descriptionInstruction = `
-        Generate a comprehensive description that encapsulates the key features and aspects of the subject. 
-        The description should be detailed and informative, with a minimum word count of 200 words and not exceeding 250 words. 
-        Focus on clarity and relevance, ensuring the text provides a thorough overview within the specified word limit."
-`;
+            Generate a comprehensive description that encapsulates the key features and aspects of the subject. 
+            The description should be detailed and informative, with a minimum word count of 200 words and not exceeding 250 words. 
+            Focus on clarity and relevance, ensuring the text provides a thorough overview within the specified word limit."
+        `;
         priceInstruction = `If there is a currency prise or rate in the prompt, use the ${currency} ${price};`;
     }
 
@@ -20,7 +20,7 @@ const getInstructionCryptoCurrency = (price, currency, structureJson) => {
         Ensure clarity and precision in the responses to enhance understanding and provide value to the reader.`;
     }
 
-    console.log(answerInstruction);
+
     return `
     
     ${answerInstruction}

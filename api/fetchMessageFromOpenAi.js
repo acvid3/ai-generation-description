@@ -11,7 +11,8 @@ const getMessage = async (prompt, currency, structureJson) => {
     const response = await getCurrentPrice(currency);
 
     const instruction = getInstructionCryptoCurrency(
-        response,
+        // response,
+        '',
         currency,
         JSON.stringify(structureJson, null, 2)
     );
