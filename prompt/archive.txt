@@ -1,0 +1,32 @@
+ /exchange/[fiat]-with-[currency]-in-[geo]:
+[
+  `Title: Exchange ${fiat} for ${currency} in ${geo} Description: Write an intro for the article 'Exchange ${fiat} for ${currency} in ${geo}'  . Use words: exchange, sell, transfer, cash, cryptocurrency`,
+  `Title: Easy-Changer simplifies the process of exchanging ${fiat} for ${currency} in ${geo} Description: Write several paragraphs for the section 'Easy-Changer simplifies the process of exchanging ${fiat} for ${currency} in ${geo}' and organically include the link https://easy-changer.io/how-to-exchange-cryptocurrency/ Use words: method, funds, transactions, cash`,
+  `Title: Benefits of buying ${currency} for ${fiat} in ${geo} Description: Customize the text with the benefits below using words: cryptocurrency, amount, quantity, reliability`,
+  `Title: How the exchange through Easy-Changer in ${geo} works Description: Write several paragraphs for the section 'How the exchange through Easy-Changer in ${geo} works' and organically include the link https://easy-changer.io/how-to-exchange-cryptocurrency/#limits Use words: method, funds, transactions, cash`,
+  `Title: Precautions during transaction processing Description: Write several paragraphs for the section 'Precautions during transaction processing' and organically include the link https://easy-changer.io/safety/ Use words: exchange, cryptocurrency, transactions, method`,
+  `FAQ:item- Briefly answer the question: What are the fees for exchanging ${fiat} for ${currency} in ${geo}?item- Briefly answer the question: How long does the order processing take?item- Briefly answer the question: How to transfer ${fiat} to ${currency} without a fee?item- Briefly answer the question: How can I find the necessary currency for the exchange?`
+]
+
+/exchange/[currency]-with-[fiat]-in-[geo]:
+[
+  `Title: Exchange ${currency} for ${fiat} in ${geo} Description: Write an intro for the article 'Exchange ${currency} for ${fiat} in ${geo}' . Use words: exchange, sell, transfer, cash, cryptocurrency`,
+  `Title: About selling ${currency} for ${fiat} in ${geo} Description: Write a section about 'Selling ${currency} for ${fiat} in ${geo}' . Briefly describe the exchange process using words: exchange, method, cash, transactions`,
+  `Title: Reliability of the Easy-Changer exchange service in ${geo} Description: Write several paragraphs for the section 'Reliability of the Easy-Changer exchange service in ${geo}' and organically include the link https://easy-changer.io/safety/ Use words: verification, online, bank, service`,
+  `Title: The principle of operation of the exchange in ${geo} Description: Write several paragraphs for the section 'The principle of operation of the exchange in ${geo}' and organically include the link https://easy-changer.io/how-to-exchange-cryptocurrency/ Use words: method, funds, transactions, cash`,
+  `Title: Benefits of exchanging ${currency} for ${fiat} in ${geo} with our serviceitemList: Quickly, Securely, Advantageously, Conveniently`,
+  `Title: Other cities for exchanging ${currency} for ${fiat} Description: Write 4-5 sentences for the section 'Other cities for exchanging ${currency} for ${fiat}' using words: in Ukraine, cities, exchange locations, service`,
+  `FAQ:item- Briefly answer the question: What to do if the needed exchange service in ${geo} is unavailable?item- Briefly answer the question: Where can one exchange ${currency} for ${fiat} in ${geo}?item- Briefly answer the question: What payment methods are available for exchanging ${currency} for ${fiat} in ${geo}?item- Briefly answer the question: How much ${currency} can one buy with 100 ${fiat} in ${geo}?`
+]
+
+/[geo]
+[
+  `Title: Crypto exchange in ${geo}itemDescription: Write an intro for the commercial page 'Crypto exchange in ${geo}' without writing the title. Use words: cryptocurrency exchange, service`,
+  `Title: Buying and selling cryptocurrency in ${geo}itemDescription: Write several paragraphs for the section 'Buying and selling cryptocurrency in ${geo}'. Use words: crypto exchange, address, online`,
+  `Title: How the exchange through Easy-Changer in ${geo} worksitemDescription: Write several paragraphs for the section 'How the exchange through Easy-Changer in ${geo} works' and organically include the link https://easy-changer.io/how-to-exchange-cryptocurrency/#limits Use words: method, funds, transactions, cash`,
+  `Title: Precautions during transaction processingitemDescription: Write several paragraphs for the section 'Precautions during transaction processing' and organically include the link https://easy-changer.io/safety/ Use words: exchange, cryptocurrency, transactions, method`,
+  `Title: Benefits of the Easy-Changer crypto exchange in ${geo}itemDescription: Customize the text about the benefits of the Easy-Changer crypto exchange in ${geo} with the following points: Fast and reliable operations, Wide range of cryptocurrencies, User-friendly interface, Competitive exchange rates, Security and confidentiality`,
+  `Title: How to exchange cryptocurrencyitemDescription: Write 3-4 paragraphs for the section 'How to exchange cryptocurrency?' on the commercial page of the website. Include the link https://easy-changer.io/how-to-exchange-cryptocurrency/#how-to organically. Use words: address, online, service`,
+  `Title: Security of the Easy-Changer serviceitemDescription: Write 3-4 paragraphs for the section 'Security of the Easy-Changer service' on the commercial page of the website. Include the link https://easy-changer.io/safety/ organically. Use words: cryptocurrency exchange, crypto exchange`,
+  `FAQ:item- Briefly answer the question: What cryptocurrencies are available for buying and selling through the crypto exchange in ${geo}? List the main ones.item- Briefly answer the question: What are the methods of exchanging cryptocurrency through the Easy-Changer crypto exchange in ${geo}?item- Briefly answer the question: What are the fees for cryptocurrency transactions through Easy-Changer in ${geo}? Use information for the answer: The fee is included in the exchange rate. For sending currency, the client pays, and the fee for receiving is included in the rate.item- Briefly answer the question: How fast are the buying, selling, or exchanging operations of cryptocurrency through Easy-Changer compared to other services?item- Briefly answer the question: What are the minimum and maximum amounts for transactions through Easy-Changer?item- Briefly answer the question: What wallets are supported for depositing and withdrawing cryptocurrency through Easy-Changer?`
+]

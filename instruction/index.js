@@ -2,6 +2,8 @@ const getInstructionCryptoCurrency = (price, currency, structureJson) => {
     let descriptionInstruction = "";
     let priceInstruction = "";
     let answerInstruction = "";
+    let itemsInstruction = "";
+    let titleInstruction = "";
     let linkInstruction = "";
 
     if (JSON.stringify(structureJson).includes("description")) {
@@ -20,12 +22,25 @@ const getInstructionCryptoCurrency = (price, currency, structureJson) => {
         Ensure clarity and precision in the responses to enhance understanding and provide value to the reader.`;
     }
 
+    if (JSON.stringify(structureJson).includes("items")) {
+        itemsInstruction = `Please generate a list in the 'items' section containing at least four items. Each item should be detailed and clearly distinct from the others. Ensure that the items are relevant to the context or theme provided.
+        `;
+    }
+
+    if (JSON.stringify(structureJson).includes("title")) {
+        titleInstruction = `Please ensure to provide a title for the response. The title should be concise and accurately reflect the main topic or theme of the content you generate.`;
+    }
+
+    
+
 
     return `
     
     ${answerInstruction}
     ${priceInstruction}
     ${descriptionInstruction}
+    ${itemsInstruction}
+    ${titleInstruction}
     (title : static);
     
     ([UA, US, RU] mandatory for lenguages version);

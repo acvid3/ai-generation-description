@@ -1,14 +1,14 @@
 const OpenAI = require("openai");
 require("dotenv").config();
 const { getInstructionCryptoCurrency } = require("../instruction");
-const { getCurrentPrice } = require("../api/fetchPriceForCurrency");
+// const { getCurrentPrice } = require("../api/fetchPriceForCurrency");
 
 const openai = new OpenAI({
     apiKey: process.env.OPEN_AI_KEY,
 });
 
 const getMessage = async (prompt, currency, structureJson) => {
-    const response = await getCurrentPrice(currency);
+    // const response = await getCurrentPrice(currency);
 
     const instruction = getInstructionCryptoCurrency(
         // response,

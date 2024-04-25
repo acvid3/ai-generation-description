@@ -6,51 +6,62 @@ const {
 } = require("./api/fetchMessageFromOpenAi");
 const { getPromptTitle, getPromptContents } = require("./prompt");
 
-const currencies = ["BTC", "BNB", "ETH", "DOGE", "XRP", "USDT TRC20", "USDT ERC20"];
+const currencies = [
+    ["ETH", "UAH", "Zaporizhzhia"],
+    ["BTC", "UAH", "Kharkiv"],
+    ["XRP", "UAH", "Odesa"],
+    ["DOGE", "USD", "Kyiv"],
+    ["BNB", "USD", "Dnipro"],
+];
 
 async function generateDescriptions() {
     const currencyPosts = {};
     const [title, items] = Object.values(structureMap);
 
-    for (const currency of currencies) {
-        if (!currencyPosts[currency]) {
-            currencyPosts[currency] = {};
+    for (const item of currencies) {
+        const [currency, fiat, geo] = item;
+        const rout = `${currency}-to-${fiat}-in-${geo}`;
+        
+        if (!currencyPosts[rout]) {
+            currencyPosts[rout] = {};
         }
-        currencyPosts[currency]['items'] = [];
+
+        currencyPosts[rout]['items'] = [];
         
         try {
             const stream = await getMessage(
-                getPromptTitle(currency),
-                currency,
+                getPromptTitle(currency, fiat, geo),
+                item,
                 title 
             );
 
             const response = await waitForResponseMessage(stream);
             console.log(response);
 
-            currencyPosts[currency]['title'] = { ...JSON.parse(response) };
+            currencyPosts[rout]['title'] = { ...JSON.parse(response) };
         } catch (error) {
             console.log(
-                `Error fetching data for ${currency}:`,
+                `Error fetching data for ${item}:`,
                 error
             );
         }
 
         for (const iterator in items) {
-            const prompt = getPromptContents(currency)[iterator];
+            const prompt = getPromptContents(currency, fiat, geo)[iterator];
 
             try {
                 const stream = await getMessage(
                     prompt,
-                    currency,
+                    item,
                     items[iterator]
                 );
 
                 const response = await waitForResponseMessage(stream);
-                currencyPosts[currency]['items'].push(JSON.parse(response));
+                currencyPosts[rout]['items'].push(JSON.parse(response));
+                console.log(response);
             } catch (error) {
                 console.log(
-                    `Error fetching data for ${currency}:`,
+                    `Error fetching data for ${item}:`,
                     error
                 );
             }
@@ -61,7 +72,7 @@ async function generateDescriptions() {
 }
 
 generateDescriptions().then((allPosts) => {
-    const postsFilePath = "currency.json";
+    const postsFilePath = "exchange-currency-with-fiat-in-geo-v1.json";
     fs.writeFile(postsFilePath, JSON.stringify({ allPosts }, null, 2), "utf8");
     console.log("All posts: ", JSON.stringify(allPosts, null, 2));
 });
