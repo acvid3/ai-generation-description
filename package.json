@@ -6,6 +6,7 @@
     "scripts": {
         "dev": "nodemon index.js",
         "test": "node index.js",
+        "buy_currency": "node buy-currency-index.js",
         "introduction": "nodemon introduction.js"
     },
     "keywords": [],

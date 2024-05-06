@@ -5,54 +5,49 @@ const {
     waitForResponseMessage,
 } = require("./api/fetchMessageFromOpenAi");
 const { getPromptTitle, getPromptContents } = require("./prompt");
-
-const currencies = [
-    ["ETH", "UAH", "Zaporizhzhia"],
-    ["BTC", "UAH", "Kharkiv"],
-    ["XRP", "UAH", "Odesa"],
-    ["DOGE", "USD", "Kyiv"],
-    ["BNB", "USD", "Dnipro"],
-];
+const {currencyToCashInGeo, cityMaps} = require("./geo-maps");
+const { fiatToCurrency } = require("./fiatToCurrency");
+const { fetch } = require("openai/_shims");
 
 async function generateDescriptions() {
     const currencyPosts = {};
     const [title, items] = Object.values(structureMap);
 
-    for (const item of currencies) {
-        const [currency, fiat, geo] = item;
-        const rout = `${currency}-to-${fiat}-in-${geo}`;
-        
+    for (const value of fiatToCurrency) {
+        const rout = value;
+        const [fiat, currency, geo] = value.split(/-to-|-in-/);
+
         if (!currencyPosts[rout]) {
             currencyPosts[rout] = {};
         }
 
         currencyPosts[rout]['items'] = [];
-        
+
         try {
             const stream = await getMessage(
-                getPromptTitle(currency, fiat, geo),
-                item,
+                getPromptTitle(fiat.replace("CASH", "CASH "), currency, cityMaps[geo]),
+                value,
                 title 
             );
 
             const response = await waitForResponseMessage(stream);
-            console.log(response);
+            console.log('response:', response);
 
             currencyPosts[rout]['title'] = { ...JSON.parse(response) };
         } catch (error) {
             console.log(
-                `Error fetching data for ${item}:`,
+                `Error fetching data for ${value}:`,
                 error
             );
         }
 
         for (const iterator in items) {
-            const prompt = getPromptContents(currency, fiat, geo)[iterator];
+            const prompt = getPromptContents(fiat.replace("CASH", "Cash exchange "), currency, cityMaps[geo])[iterator];
 
             try {
                 const stream = await getMessage(
                     prompt,
-                    item,
+                    value,
                     items[iterator]
                 );
 
@@ -61,7 +56,7 @@ async function generateDescriptions() {
                 console.log(response);
             } catch (error) {
                 console.log(
-                    `Error fetching data for ${item}:`,
+                    `Error fetching data for ${value}:`,
                     error
                 );
             }
@@ -72,7 +67,10 @@ async function generateDescriptions() {
 }
 
 generateDescriptions().then((allPosts) => {
-    const postsFilePath = "exchange-currency-with-fiat-in-geo-v1.json";
+    const version = Date.now();
+    const postsFilePath = `exchange-fiat-to-currency-in-geo-${version}.json`;
     fs.writeFile(postsFilePath, JSON.stringify({ allPosts }, null, 2), "utf8");
     console.log("All posts: ", JSON.stringify(allPosts, null, 2));
 });
+
+
